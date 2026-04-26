@@ -1,0 +1,41 @@
+.all-list {
+  display: flex;
+}
+
+.filter-block {
+  max-width: 300px;
+  width: 100%;
+  position: sticky;
+  top: 0px;
+  border-right: 1px solid rgb(200, 200, 200);
+  padding: 20px;
+  transition: all 0.38s ease;
+  background: rgba(240, 240, 240, 0.3);
+
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.listings {
+  width: 100%;
+  padding: 20px !important;
+}
+
+.sort {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.sort select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .filter-block {
+    display: none;
+  }
+}

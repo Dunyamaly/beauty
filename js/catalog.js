@@ -8,32 +8,57 @@ const mBtn = document.querySelector('.menu button')
 const mMenu = document.getElementById('mMenu')
 const mOverlay = document.getElementById('mMenuOverlay')
 const mClose = document.getElementById('mMenuClose')
+const mCatalog = document.getElementById('mMenuCatalog')
 
-const mCatalog = document.getElementById('mMenuCatalog') // 🔥 mobile kataloq
+// EYNİ KATEQORİYALAR - həm drawer, həm də filter üçün
+let categories = [
+  'Üz baxımı',
+  'Saça qulluq',
+  'Dəriyə qulluq',
+  'Gözlər üçün',
+  'Makiyaj',
+  'Bədən baxımı',
+  'Dırnaq baxımı',
+  'Kişi baxımı',
+  'Üz baxımı',
+  'Saça qulluq',
+  'Dəriyə qulluq',
+  'Gözlər üçün',
+  'Makiyaj',
+  'Bədən baxımı',
+  'Dırnaq baxımı',
+  'Kişi baxımı',
+]
 
-let items = ['Məsələn 1', 'Məsələn 2']
+function renderList(containerId, isFilter = false) {
+  const container = document.getElementById(containerId)
+  if (!container) return
 
-function render() {
-  list.innerHTML = ''
+  container.innerHTML = ''
 
-  items.forEach((text) => {
+  categories.forEach((cat) => {
     const div = document.createElement('div')
-    div.textContent = text
+    div.textContent = cat
     div.style.padding = '10px 20px'
     div.style.borderBottom = '1px solid #eee'
-    list.appendChild(div)
+    div.style.cursor = 'pointer'
+
+    if (isFilter) {
+      div.addEventListener('click', () => {
+        console.log('Filtr: ' + cat)
+        // İstəyirsən burada filtrasiya et
+      })
+    }
+
+    container.appendChild(div)
   })
 }
 
-/* =======================
-   🔥 SINGLE CATALOG LOGIC
-======================= */
+/* CATALOG OPEN/CLOSE */
 function openCatalog() {
-  render()
+  renderList('drawerList', false)
   drawer.classList.add('open')
   overlay.classList.add('show')
-
-  // mobile menu açıqdırsa bağla (UX fix)
   closeMenu()
 }
 
@@ -42,9 +67,7 @@ function closeCatalog() {
   overlay.classList.remove('show')
 }
 
-/* =======================
-   MOBILE MENU
-======================= */
+/* MOBILE MENU */
 function openMenu() {
   mMenu.classList.add('active')
   mOverlay.classList.add('active')
@@ -55,19 +78,14 @@ function closeMenu() {
   mOverlay.classList.remove('active')
 }
 
-/* =======================
-   EVENTS
-======================= */
+/* EVENTS */
 drawerBtn.addEventListener('click', openCatalog)
 overlay.addEventListener('click', closeCatalog)
 closeBtn.addEventListener('click', closeCatalog)
-
-/* 🔥 EYNİ FUNKUSİYA - MOBILE LINK */
 mCatalog.addEventListener('click', (e) => {
   e.preventDefault()
   openCatalog()
 })
-
 mBtn.addEventListener('click', openMenu)
 mOverlay.addEventListener('click', closeMenu)
 mClose.addEventListener('click', closeMenu)

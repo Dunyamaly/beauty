@@ -184,17 +184,18 @@ nav.hide {
   background: #fff;
   z-index: 1000;
   transition: 0.3s ease;
-}
 
-#drawer {
-  top: 50%;
+  top: 165px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -100px);
   width: 400px;
-  height: 200px;
+  height: 300px;
   border-radius: 8px;
   opacity: 0;
   pointer-events: none;
+
+  display: flex;
+  flex-direction: column; /* 🔥 vacib */
 }
 
 #drawer.open {
@@ -208,18 +209,52 @@ nav.hide {
 }
 
 .open-cat-hdr {
+  flex-shrink: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  position: sticky;
+  top: 0;
+  background: white;
   border-bottom: 1px solid rgba(170, 170, 170, 0.5);
+  z-index: 2;
 }
 
-.open-cat-hdr button {
+#drawerList {
+  overflow-y: auto;
+  flex: 1;
+  padding: 10px;
+}
+
+#drawerList::-webkit-scrollbar {
+  width: 5px;
+}
+
+#drawerList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#drawerList::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+
+#drawerList::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+#close-catalog {
   border: none;
   background: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+#close-catalog:hover {
+  scale: calc(1.2);
+  /* transform: rotate(90deg); */
 }
 
 #mMenu {
@@ -409,7 +444,7 @@ nav.hide {
 /* SLIDER BANNER */
 #slider {
   width: calc(100% - 160px);
-  margin: 20px auto;
+  margin: 5px auto;
   overflow: hidden;
   position: relative;
 }
@@ -1240,7 +1275,6 @@ footer a {
     scale: calc(0.8);
   }
 
-  /* Search kiçilir */
   .search-box {
     max-width: 500px;
     gap: 10px;
@@ -1355,15 +1389,17 @@ footer a {
   }
 }
 @media (max-width: 500px) {
-  .search-box {
+  #drawerBtn {
     display: none;
   }
 
   #slider {
+    margin: 0;
     width: 100%;
   }
 
   .slide img {
+    border-radius: 5px;
     height: 200px;
   }
 
@@ -1442,7 +1478,11 @@ footer a {
     align-items: center;
   }
 
-  /* active */
+  #mMenuClose {
+    background: none;
+    border: none;
+  }
+
   #mMenu.active {
     right: 0;
   }

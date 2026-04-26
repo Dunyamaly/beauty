@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/listing.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="/index.html">
+          <span class="logo-icon">B</span>
+          <span class="logo-text">beauty<span>.az</span></span>
+        </a>
+      </div>
+
+      <div class="search-box">
+        <div class="catalog">
+          <button id="drawerBtn"><i class="fa-solid fa-bars"></i><span>Kataloq</span></button>
+        </div>
+
+        <div class="search-input">
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Axtarış et..." />
+          <button type="button">Axtar</button>
+        </div>
+      </div>
+
+      <div class="choice">
+        <div class="basket">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <p>Səbət</p>
+        </div>
+
+        <div class="favorite">
+          <i class="fa-solid fa-heart"></i>
+          <p>Seçilmişlər</p>
+        </div>
+      </div>
+
+      <div class="account">
+        <!-- Giriş yoxdursa -->
+        <div class="auth guest">
+          <a href="#" class="login">Giriş</a>
+          <span>/</span>
+          <a href="#" class="register">Qeydiyyat</a>
+        </div>
+
+        <!-- Giriş varsa (logged in) -->
+        <div class="auth user">
+          <button class="user-btn">Hesabım ▾</button>
+
+          <div class="dropdown">
+            <a href="#">Seçim 1</a>
+            <a href="#">Seçim 2</a>
+            <a href="#">Seçim 3</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu">
+        <button><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+
+    <div id="drawerOverlay"></div>
+    <div id="drawer">
+      <div class="open-cat-hdr">
+        <div>Kataloq</div>
+        <button id="close-catalog"><i class="fa-solid fa-circle-xmark"></i></button>
+      </div>
+      <div id="drawerList"></div>
+    </div>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mMenuOverlay"></div>
+
+    <!-- MOBILE MENU -->
+    <div id="mMenu">
+      <div class="mMenu-hdr">
+        <h3>Menu</h3>
+        <button id="mMenuClose">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+      </div>
+
+      <a href="#">Ana səhifə</a>
+      <a href="#" id="mMenuCatalog">Kataloq</a>
+      <a href="#">Səbət</a>
+      <a href="#">Seçilmişlər</a>
+      <a href="#">Hesabım</a>
+    </div>
+
+    <!-- TOP BUTTON-->
+    <div class="top-go" id="homePageGo">
+      <i class="fa-solid fa-angles-up"></i>
+    </div>
+
+    <div class="all-list">
+      <div class="filter-block">
+        <p>Kataloq</p>
+        <div id="filterList"></div>
+      </div>
+
+      <!-- LISTINGS -->
+      <div class="listings">
+        <div class="card-head">
+          <h3>Bütün məhsullar</h3>
+          <div class="sort">
+            <select id="sortSelect">
+              <option value="default">Sıralama</option>
+              <option value="price-asc">Qiymət (artan)</option>
+              <option value="price-desc">Qiymət (azalan)</option>
+              <option value="name-asc">Ad (A-Z)</option>
+              <option value="name-desc">Ad (Z-A)</option>
+            </select>
+          </div>
+        </div>
+        <div class="list">
+          <div class="cards">
+            <div class="card">
+              <a href="/html/detail.html">
+                <div class="card-images">
+                  <div class="image-indicators"></div>
+                  <img src="https://picsum.photos/800/400?random=1" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=2" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=3" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=4" alt="Thumbnail 3" />
+                </div>
+              </a>
+
+              <button class="favorite-btn">
+                <i class="far fa-heart"></i>
+              </button>
+
+              <div class="card-in">
+                <a href="/html/detail.html">
+                  <div class="product-name">
+                    Mercedes OM611/646 mühərrik kolenvalın kladişi Glyco Mercedes OM611/646 mühərrik
+                    kolenvalın kladişi Glyco
+                  </div>
+
+                  <div class="price">220.49 AZN</div>
+                </a>
+
+                <button id="buy" type="button">Səbətə at</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <a href="/html/detail.html">
+                <div class="card-images">
+                  <div class="image-indicators"></div>
+                  <img src="https://picsum.photos/800/400?random=3" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=4" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=5" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=6" alt="Thumbnail 3" />
+                </div>
+              </a>
+
+              <button class="favorite-btn">
+                <i class="far fa-heart"></i>
+              </button>
+
+              <div class="card-in">
+                <a href="/html/detail.html">
+                  <div class="product-name">
+                    Mercedes OM611/646 mühərrik kolenvalın kladişi Glyco Mercedes OM611/646 mühərrik
+                    kolenvalın kladişi Glyco
+                  </div>
+
+                  <div class="price">220.49 AZN</div>
+                </a>
+
+                <button id="buy" type="button">Səbətə at</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <a href="/html/detail.html">
+                <div class="card-images">
+                  <div class="image-indicators"></div>
+                  <img src="https://picsum.photos/800/400?random=1" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=2" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=3" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=4" alt="Thumbnail 3" />
+                </div>
+              </a>
+
+              <button class="favorite-btn">
+                <i class="far fa-heart"></i>
+              </button>
+
+              <div class="card-in">
+                <a href="/html/detail.html">
+                  <div class="product-name">
+                    Mercedes OM611/646 mühərrik kolenvalın kladişi Glyco Mercedes OM611/646 mühərrik
+                    kolenvalın kladişi Glyco
+                  </div>
+
+                  <div class="price">220.49 AZN</div>
+                </a>
+
+                <button id="buy" type="button">Səbətə at</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <a href="/html/detail.html">
+                <div class="card-images">
+                  <div class="image-indicators"></div>
+                  <img src="https://picsum.photos/800/400?random=3" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=4" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=5" alt="Thumbnail 3" />
+                  <img src="https://picsum.photos/800/400?random=6" alt="Thumbnail 3" />
+                </div>
+              </a>
+
+              <button class="favorite-btn">
+                <i class="far fa-heart"></i>
+              </button>
+
+              <div class="card-in">
+                <a href="/html/detail.html">
+                  <div class="product-name">
+                    Mercedes OM611/646 mühərrik kolenvalın kladişi Glyco Mercedes OM611/646 mühərrik
+                    kolenvalın kladişi Glyco
+                  </div>
+
+                  <div class="price">220.49 AZN</div>
+                </a>
+
+                <button id="buy" type="button">Səbətə at</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-info">
+        <h3>beauty.az</h3>
+
+        <div class="footer-links">
+          <a href="">Layihə haqqında</a>
+          <a href="">Qaydalar</a>
+          <a href="">Dəstək mərkəzi və tez-tez verilən suallar</a>
+        </div>
+
+        <div class="sosial-media">
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-info footer-account">
+        <h3>Hesabım</h3>
+        <a href="">Giriş</a>
+        <a href="">Qeydiyyat</a>
+        <a href="">Balans</a>
+        <a href="">Çıxarış</a>
+        <a href="">Referalım</a>
+        <a href="">Dərəcə</a>
+      </div>
+      <div class="footer-contact">
+        <form action="">
+          <input type="text" placeholder="Ad Soyad" /><br />
+          <input type="email" placeholder="Email" /><br />
+          <input type="text" placeholder="Başlıq" /><br />
+          <textarea placeholder="Mesaj"></textarea>
+          <button class="message-send">Göndər</button>
+        </form>
+      </div>
+    </footer>
+    <script src="/js/topButton.js"></script>
+    <script src="/js/indicators.js"></script>
+
+    <script src="/js/navbarScroll.js"></script>
+
+    <script src="/js/catalog.js"></script>
+    <script src="/js/filter-top.js"></script>
+    <script src="/js/sort.js"></script>
+  </body>
+</html>
